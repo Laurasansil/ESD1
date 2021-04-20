@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <iomanip>
-
 #define LIN 15
 #define COL 40
 
@@ -14,7 +13,7 @@ int main()
   int i;
   int j;
 
- /* Variaveis que aguardam interaÁ„o do usuario para escolher a poltrona */ 
+ /* Variaveis que aguardam intera√ß√£o do usuario para escolher a poltrona */ 
   int escolher;
 
   int poltrona;
@@ -24,104 +23,104 @@ int main()
   float faturamento = 0;
 
   
- /* Aqui tem uma matriz de booleanos para poltronas, os lugurares escolhidos s„o false e os disponÌveis s„o true! */
-  bool poltronas[LIN][COL];
+	 /* Aqui tem uma matriz de booleanos para poltronas, os lugurares escolhidos s√£o false e os dispon√≠veis s√£o true! */
+	  bool poltronas[LIN][COL];
 
- /*[POSI«’ES DAS POLTRONAS */
-  
-  for (i = 0; i < LIN; ++i)
-  {
-    for (j = 0; j < COL; ++j)
-    {
-      poltronas[i][j] = true;
-    }
-  }
+	 /*[POSI√á√ïES DAS POLTRONAS */
 
-  do
-  {
-    cout << "0. Finalizar" << endl;
-    cout << "1. Reservar poltrona" << endl;
-    cout << "2. Mapa de ocupaÁ„o" << endl;
-    cout << "3. Faturamento" << endl;
+	  for (i = 0; i < LIN; ++i)
+	  {
+	    for (j = 0; j < COL; ++j)
+	    {
+	      poltronas[i][j] = true;
+	    }
+	  }
 
-    cin >> escolher;
+		  do
+		  {
+		    cout << "0. Finalizar" << endl;
+		    cout << "1. Reservar poltrona" << endl;
+		    cout << "2. Mapa de ocupa√ß√£o" << endl;
+		    cout << "3. Faturamento" << endl;
 
-    /*[RESERVAR POLTRONAS]*/
-									    
-    if (escolher == 1)
-    {
-      cout << endl
-           << "A organizacao das poltronas deste  se d· por: 15 fileiras, cada fileira tem 40 poltronas." << endl;
+		    cin >> escolher;
 
-      cout <<  "Por favor selecione o numero da fileira que deseja escolher (max 15): ";
-      cin >> fileira;
+			    /*[RESERVAR POLTRONAS]*/
 
-      cout << "Selecionar o numero da poltrona (Max 40): ";
-      cin >> poltrona;
+			    if (escolher == 1)
+			    {
+			      cout << endl
+				   << "A organizacao das poltronas deste  se d√° por: 15 fileiras, cada fileira tem 40 poltronas." << endl;
 
-      --poltrona;
-      --fileira;
+			      cout <<  "Por favor selecione o numero da fileira que deseja escolher (max 15): ";
+			      cin >> fileira;
 
-      if (poltronas[fileira][poltrona])
-      {
-        poltronas[fileira][poltrona] = false;
+			      cout << "Selecionar o numero da poltrona (Max 40): ";
+			      cin >> poltrona;
 
-        if (fileira >= 1 && fileira <= 5)
-        {
-          faturamento += 50;
-        }
-        else if (fileira >= 6 && fileira <= 10)
-        {
-          faturamento += 30;
-        }
-        else if (fileira >= 11 && fileira <= 15)
-        {
-          faturamento += 15;
-        }
+			      --poltrona;
+			      --fileira;
 
-        lugares_escolhidos++;
+			      if (poltronas[fileira][poltrona])
+			      {
+				poltronas[fileira][poltrona] = false;
 
-        cout << endl
-             << "ParabÈns! sua reserva foi realizada. Caso queira continuar pode escolher outra poltrona." << endl;
-      }
-      else
-      {
-        cout << endl
-             << "Oops!! Infelizmente n„o foi possÌvel efetuar sua reserva, esta poltrona j· foi escolhida. Por favor, faÁa outra escolher." << endl;
-      }
-    }
+				if (fileira >= 1 && fileira <= 5)
+				{
+				  faturamento += 50;
+				}
+				else if (fileira >= 6 && fileira <= 10)
+				{
+				  faturamento += 30;
+				}
+				else if (fileira >= 11 && fileira <= 15)
+				{
+				  faturamento += 15;
+				}
 
-   /*[TELA DE RESERVAS]
-  	 onde . È usado para os lugares que est„o disponÌveis e # para os que foram escolhidos! */
-    else if (escolher == 2)
-    {
-      for (i = 0; i < LIN; ++i)
-      {
-        for (j = 0; j < COL; ++j)
-        {
-          if (poltronas[i][j])
-            cout << ".";
-          else
-            cout << "#";
-          cout << " | ";
-        }
-        cout << endl;
-      }
-    }
+				lugares_escolhidos++;
 
-  /* TELA DE FATURAMENTO */
-    else if (escolher == 3)
-    {
-      cout << endl
-           << "Faturamento e OcupaÁ„o das poltronas : " << endl;
+				cout << endl
+				     << "Parab√©ns! sua reserva foi realizada. Caso queira continuar pode escolher outra poltrona." << endl;
+			      }
+			      else
+			      {
+				cout << endl
+				     << "Oops!! Infelizmente n√£o foi poss√≠vel efetuar sua reserva, esta poltrona j√° foi escolhida. Por favor, fa√ßa outra escolher." << endl;
+			      }
+			    }
 
-      cout << endl
-           << "numero de poltronas ocupadas: " << lugares_escolhidos;
-      cout << endl
-           << "Faturamento total: R$ " << setprecision(2) << fixed << faturamento << endl;
-    }
+				   /*[TELA DE RESERVAS]
+					 onde . √© usado para os lugares que est√£o dispon√≠veis e # para os que foram escolhidos! */
+				    else if (escolher == 2)
+				    {
+				      for (i = 0; i < LIN; ++i)
+				      {
+					for (j = 0; j < COL; ++j)
+					{
+					  if (poltronas[i][j])
+					    cout << ".";
+					  else
+					    cout << "#";
+					  cout << " | ";
+					}
+					cout << endl;
+				      }
+				    }
 
-  } while (escolher != 0);
+					  /* TELA DE FATURAMENTO */
+					    else if (escolher == 3)
+					    {
+					      cout << endl
+						   << "Faturamento e Ocupa√ß√£o das poltronas : " << endl;
 
-  return 0;
-}
+					      cout << endl
+						   << "numero de poltronas ocupadas: " << lugares_escolhidos;
+					      cout << endl
+						   << "Faturamento total: R$ " << setprecision(2) << fixed << faturamento << endl;
+					    }
+
+					  } while (escolher != 0);
+
+					  return 0;
+					}
